@@ -1,4 +1,4 @@
-import { StyleSheet, View, ImageBackground} from "react-native";
+import { StyleSheet, View, ImageBackground, Image} from "react-native";
 import { useState, useEffect } from "react";
 import { Text, Icon, Button } from 'react-native-paper';
 
@@ -28,6 +28,8 @@ export default function weatherPage({route, navigation}) {
     contentDisplayed = null
   }
   else {
+    let imageUrl = "https://openweathermap.org/img/wn/" + weatherData.current.weather[0].icon + "@2x.png"
+    console.log(imageUrl)
     contentDisplayed = <>
     <View style ={styles.city}>
     <Text variant="displayLarge" style={styles.bigText}>
@@ -42,6 +44,9 @@ export default function weatherPage({route, navigation}) {
       <Text variant="displaySmall" style={styles.text1}>
           Feels Like: {weatherData.current.feels_like}°
         </Text>
+    </View>
+    <View style={styles.icon_weather}>
+    <Image source={{ uri: imageUrl }} style={styles.image1} />
     </View>
       <View style={styles.sun_moon}>
         <View style={styles.sunrise}>
@@ -102,7 +107,7 @@ export default function weatherPage({route, navigation}) {
       justifyContent: 'center',
     },
     city: {
-      flex: 3,
+      flex: 4,
       justifyContent: 'center',
       alignItems: 'center',
       borderWidth: 1,
@@ -127,6 +132,11 @@ export default function weatherPage({route, navigation}) {
     text1: {
       fontSize: 20,
       color: "#5459A0"
+    },
+    icon_weather: {
+      flex: 2,
+      alignItems: 'center',
+      justifyContent: 'center'
     },
     sun_moon: {
       flex: 2,
@@ -166,5 +176,9 @@ export default function weatherPage({route, navigation}) {
       flex: 1,
       width: '100%', 
       height: '100%',
+    },
+    image1: {
+      width: 100,
+      height: 100, 
     }
 });

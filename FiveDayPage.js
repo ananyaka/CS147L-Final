@@ -27,6 +27,11 @@ export default function fiveDay({route}) {
     contentDisplayed = null
   }
   else {
+    let imageUrl1 = "https://openweathermap.org/img/wn/" + weatherData.daily[0].weather[0].icon[0] + weatherData.daily[0].weather[0].icon[1] + "n@2x.png"
+    let imageUrl2 = "https://openweathermap.org/img/wn/" + weatherData.daily[1].weather[0].icon[0] + weatherData.daily[1].weather[0].icon[1] + "n@2x.png"
+    let imageUrl3 = "https://openweathermap.org/img/wn/" + weatherData.daily[2].weather[0].icon[0] + weatherData.daily[2].weather[0].icon[1] + "n@2x.png"
+    let imageUrl4 = "https://openweathermap.org/img/wn/" + weatherData.daily[3].weather[0].icon[0] + weatherData.daily[3].weather[0].icon[1] + "n@2x.png"
+    let imageUrl5 = "https://openweathermap.org/img/wn/" + weatherData.daily[4].weather[0].icon[0] + weatherData.daily[4].weather[0].icon[1] + "n@2x.png"
     contentDisplayed = <>
     <View style={styles.day}>
       <View style={styles.dayNum}>
@@ -35,9 +40,16 @@ export default function fiveDay({route}) {
       </Text>
       </View>
       <View style={styles.day1}>
-        <Text variant="titleLarge" style={styles.text}>
+        <View style={styles.day2}>
+        <View>
+        <Text variant="titleLarge" style={styles.text1}>
         {weatherData.daily[0].weather[0].description}
         </Text>
+        </View> 
+        <View>
+        <Image source={{ uri: imageUrl1 }} style={styles.image1} />
+        </View>
+        </View>
         <View style={styles.day2}>
         <View style={styles.min}>
         <Text variant="titleLarge" style={styles.text}>
@@ -53,15 +65,22 @@ export default function fiveDay({route}) {
       </View>
     </View>
     <View style={styles.day}>
-    <View style={styles.dayNum}>
+      <View style={styles.dayNum}>
       <Text variant="titleLarge" style={styles.text}>
         Day 2
       </Text>
       </View>
       <View style={styles.day1}>
-        <Text variant="titleLarge" style={styles.text}>
+        <View style={styles.day2}>
+        <View>
+        <Text variant="titleLarge" style={styles.text1}>
         {weatherData.daily[1].weather[0].description}
         </Text>
+        </View> 
+        <View>
+        <Image source={{ uri: imageUrl2 }} style={styles.image1} />
+        </View>
+        </View>
         <View style={styles.day2}>
         <View style={styles.min}>
         <Text variant="titleLarge" style={styles.text}>
@@ -77,15 +96,22 @@ export default function fiveDay({route}) {
       </View>
     </View>
     <View style={styles.day}>
-    <View style={styles.dayNum}>
+      <View style={styles.dayNum}>
       <Text variant="titleLarge" style={styles.text}>
         Day 3
       </Text>
       </View>
       <View style={styles.day1}>
-        <Text variant="titleLarge" style={styles.text}>
+        <View style={styles.day2}>
+        <View>
+        <Text variant="titleLarge" style={styles.text1}>
         {weatherData.daily[2].weather[0].description}
         </Text>
+        </View> 
+        <View>
+        <Image source={{ uri: imageUrl3 }} style={styles.image1} />
+        </View>
+        </View>
         <View style={styles.day2}>
         <View style={styles.min}>
         <Text variant="titleLarge" style={styles.text}>
@@ -101,15 +127,22 @@ export default function fiveDay({route}) {
       </View>
     </View>
     <View style={styles.day}>
-    <View style={styles.dayNum}>
+      <View style={styles.dayNum}>
       <Text variant="titleLarge" style={styles.text}>
         Day 4
       </Text>
       </View>
       <View style={styles.day1}>
-        <Text variant="titleLarge" style={styles.text}>
+        <View style={styles.day2}>
+        <View>
+        <Text variant="titleLarge" style={styles.text1}>
         {weatherData.daily[3].weather[0].description}
         </Text>
+        </View> 
+        <View>
+        <Image source={{ uri: imageUrl4 }} style={styles.image1} />
+        </View>
+        </View>
         <View style={styles.day2}>
         <View style={styles.min}>
         <Text variant="titleLarge" style={styles.text}>
@@ -125,24 +158,31 @@ export default function fiveDay({route}) {
       </View>
     </View>
     <View style={styles.day}>
-    <View style={styles.dayNum}>
+      <View style={styles.dayNum}>
       <Text variant="titleLarge" style={styles.text}>
         Day 5
       </Text>
       </View>
       <View style={styles.day1}>
-        <Text variant="titleLarge" style={styles.text}>
+        <View style={styles.day2}>
+        <View>
+        <Text variant="titleLarge" style={styles.text1}>
         {weatherData.daily[4].weather[0].description}
         </Text>
+        </View> 
+        <View>
+        <Image source={{ uri: imageUrl5 }} style={styles.image1} />
+        </View>
+        </View>
         <View style={styles.day2}>
         <View style={styles.min}>
         <Text variant="titleLarge" style={styles.text}>
-          L: {weatherData.daily[5].temp.min}°
+          L: {weatherData.daily[4].temp.min}°
         </Text>
         </View>
         <View style={styles.max}>
         <Text variant="titleLarge" style={styles.text}>
-        H: {weatherData.daily[6].temp.max}°
+        H: {weatherData.daily[4].temp.max}°
         </Text>
       </View>
       </View>
@@ -215,5 +255,12 @@ const styles = StyleSheet.create({
   },
   dayNum: {
     marginLeft: 7
+  },
+  text1: {
+    color: "#5459A0"
+  },
+  image1: {
+    width: 50,
+    height: 30, 
   }
 });
